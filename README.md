@@ -15,13 +15,15 @@ Server mengeksekusi perintah persis seperti yang tertulis (sesuai clue), tanpa m
 ### Solution:
 1. Penambahan Produk
 User memilih produk apa saja di halaman utama dan memasukkannya ke dalam keranjang (Add to Basket).
-2. Intersepsi via Proxy (Burp Suite)
+
+![image alt](https://github.com/princehabibiii/challange-2/blob/main/y.jpeg?raw=true)
+3. Intersepsi via Proxy (Burp Suite)
 User membuka menu keranjang (Basket). Proxy Burp Suite diaktifkan untuk menangkap lalu lintas data. User melakukan aksi yang memicu update jumlah barang (seperti menambah atau mengurangi item).
-3. Manipulasi Kuantitas (The Exploit)
+4. Manipulasi Kuantitas (The Exploit)
 Ditemukan request PUT menuju endpoint /api/BasketItems/. Di dalam body request, terdapat parameter quantity.
 Payload Original: {"quantity": 2}
 Payload Manipulasi: {"quantity": -1000}
 Request yang telah dimodifikasi kemudian dikirim (Forward) ke server.
-4. Server menerima angka -1000 dan mengalikannya dengan harga produk. Hasilnya, keranjang menampilkan total harga negatif. User kemudian menekan tombol Checkout dan menyelesaikan proses pemesanan. Sistem menganggap transaksi valid karena seluruh "ritual" (langkah-langkah) terpenuhi secara teknis.
+5. Server menerima angka -1000 dan mengalikannya dengan harga produk. Hasilnya, keranjang menampilkan total harga negatif. User kemudian menekan tombol Checkout dan menyelesaikan proses pemesanan. Sistem menganggap transaksi valid karena seluruh "ritual" (langkah-langkah) terpenuhi secara teknis.
 ### Flag:
 713e7b9e4f63848bde6ba8a4bf05b5645c840f5d
