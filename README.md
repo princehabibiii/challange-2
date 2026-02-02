@@ -24,3 +24,4 @@ Payload Manipulasi: {"quantity": -1000}
 Request yang telah dimodifikasi kemudian dikirim (Forward) ke server.
 4. Server menerima angka -1000 dan mengalikannya dengan harga produk. Hasilnya, keranjang menampilkan total harga negatif. User kemudian menekan tombol Checkout dan menyelesaikan proses pemesanan. Sistem menganggap transaksi valid karena seluruh "ritual" (langkah-langkah) terpenuhi secara teknis.
 ### Flag:
+713e7b9e4f63848bde6ba8a4bf05b5645c840f5d
